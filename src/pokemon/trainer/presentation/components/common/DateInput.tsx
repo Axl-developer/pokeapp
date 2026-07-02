@@ -1,8 +1,8 @@
+import { type TrainerForm } from "@/pokemon/trainer/domain/entities/TrainerForm";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { TrainerForm } from "../types/TrainerForm";
 
 interface Props {
   name: keyof TrainerForm;

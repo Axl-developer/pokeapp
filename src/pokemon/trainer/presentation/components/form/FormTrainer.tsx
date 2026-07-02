@@ -1,15 +1,15 @@
 import { Spacing } from '@/constants/theme';
+import { type TrainerForm } from '@/pokemon/trainer/domain/entities/TrainerForm';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
 import { StyleSheet, View } from "react-native";
-import { trainerSteps } from '../constants/trainerSteps';
-import { useCreateTrainer } from '../hooks/useCreateTrainer';
-import { useStepForm } from '../hooks/useStepForm';
-import { TrainerForm } from '../types/TrainerForm';
-import { trainerSchema } from '../validations/trainer.schema';
+import { trainerSteps } from '../../constants/trainerSteps';
+import { useCreateTrainer } from '../../hooks/useCreateTrainer';
+import { useStepForm } from '../../hooks/useStepForm';
+import { trainerSchema } from '../../validations/trainer.schema';
+import { BackArrow } from '../common/BackArrow';
+import { NextButton } from '../common/NextButton';
 import { AnimatedStep } from './AnimatedStep';
-import { BackArrow } from './BackArrow';
-import { NextButton } from './NextButton';
 import { StepIndicator } from './StepIndicator';
 
 export const FormTrainer = () => {

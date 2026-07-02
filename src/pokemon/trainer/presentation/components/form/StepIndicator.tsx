@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { Circle } from "./Circle";
+import { Circle } from "../common/Circle";
 
 export const StepIndicator = ({
   totalSteps,

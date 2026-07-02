@@ -1,4 +1,4 @@
-import { Trainer } from "../entities/Trainer";
+import { Trainer } from "./Trainer";
 
 export interface TrainerRepository{
     create(trainer:Trainer):void;

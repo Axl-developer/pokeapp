@@ -1,6 +1,6 @@
 import { useTrainerStore } from "@/store/trainer.store";
-import { FormTrainer } from "../components/FormTrainer";
-import { Perfil } from "../components/Perfil";
+import { FormTrainer } from "../components/form/FormTrainer";
+import { Profile } from "../components/profile/Profile";
 
 export const TrainerScreen = () => {
 
@@ -9,6 +9,6 @@ export const TrainerScreen = () => {
   );
 
   return trainer?.id
-      ?<Perfil />
+      ?<Profile />
       :<FormTrainer />
 }

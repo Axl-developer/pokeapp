@@ -1,14 +1,13 @@
+import { type TrainerForm } from "@/pokemon/trainer/domain/entities/TrainerForm";
 import { Input } from "@/shared/components/Input";
-import Animated from "react-native-reanimated";
-import { TrainerForm } from "../types/TrainerForm";
-import { DateInput } from './DateInput';
+import { View } from "react-native";
+import { DateInput } from '../common/DateInput';
 
 
 export const StepTwo = () => {
 
   return (
-    <Animated.View>
-
+    <View style={{width: 300, margin:'auto'}}>
         <Input<TrainerForm>
             name="age"
             placeholder="Edad"
@@ -19,6 +18,6 @@ export const StepTwo = () => {
             name="birthDate"
             placeholder="Fecha de nacimiento"
         />
-      </Animated.View>
+      </View>
   )
 }

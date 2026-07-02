@@ -27,11 +27,11 @@ export function AnimatedStep({
         direction === "next"
             ? FadeOutLeft
             : FadeOutRight;
-
+console.log('direction------',direction,animationKey)
   return (
     <Animated.View
         key={animationKey}
-        entering={entering.duration(300)}
+        entering={entering.duration(600)}
         exiting={exiting.duration(300)}
         style={style.form}
     >

@@ -1,15 +1,12 @@
+import { type TrainerForm } from "@/pokemon/trainer/domain/entities/TrainerForm";
 import { SelectInput } from "@/shared/components/SelectInput";
-import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
-import { TrainerForm } from "../types/TrainerForm";
+import { View } from "react-native";
 
 export const StepThree = () => {
 
 
     return (
-    <Animated.View
-        entering={FadeInRight.duration(300)}
-        exiting={FadeOutLeft.duration(300)}
-    >
+    <View style={{width: 300, margin:'auto'}}>
       <SelectInput<TrainerForm>
           name="city"
           placeholder="Ciudad"
@@ -24,6 +21,6 @@ export const StepThree = () => {
             },
           ]}
       />
-    </Animated.View>
+    </View>
   )
 }

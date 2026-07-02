@@ -1,8 +1,8 @@
-import { BackArrow } from '@/pokemon/trainer/presentation/components/BackArrow';
-import { StepIndicator } from '@/pokemon/trainer/presentation/components/StepIndicator';
-import { StepOne } from '@/pokemon/trainer/presentation/components/StepOne';
-import { StepThree } from '@/pokemon/trainer/presentation/components/StepThree';
-import { StepTwo } from '@/pokemon/trainer/presentation/components/StepTwo';
+import { BackArrow } from '@/pokemon/trainer/presentation/components/common/BackArrow';
+import { StepIndicator } from '@/pokemon/trainer/presentation/components/form/StepIndicator';
+import { StepOne } from '@/pokemon/trainer/presentation/components/form/StepOne';
+import { StepThree } from '@/pokemon/trainer/presentation/components/form/StepThree';
+import { StepTwo } from '@/pokemon/trainer/presentation/components/form/StepTwo';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";

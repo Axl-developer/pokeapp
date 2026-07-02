@@ -1,10 +1,11 @@
 import { useTrainerStore } from "@/store/trainer.store";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, { FadeInDown, FadeOutUp } from "react-native-reanimated";
-import { useRestartTrainer } from "../hooks/useRestartTrainer";
+import { useRestartTrainer } from "../../hooks/useRestartTrainer";
+import { Favorite } from "./Favorite";
 
 
-export const Perfil = () => {
+export const Profile = () => {
 
   const trainer = useTrainerStore( state => state.trainer );
 
@@ -24,7 +25,7 @@ export const Perfil = () => {
         <Pressable style={style.buton} onPress={restartTrainer}>
             <Text style={style.butonText} >Cerrar sesión</Text>
         </Pressable>
-        <Text>Favoritos</Text>
+        <Favorite />
     </Animated.View>
   )
 }
@@ -65,7 +66,7 @@ const style = StyleSheet.create({
     butonText: {
         color: 'white',
         textAlign: 'center',
-        fontSize: 15,
-        fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: '500',
     }
 })

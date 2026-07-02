@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TrainerForm } from "../types/TrainerForm";
+import { type TrainerForm } from "../../domain/entities/TrainerForm";
 
 type field = (keyof TrainerForm);
 

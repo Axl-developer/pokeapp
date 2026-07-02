@@ -1,7 +1,7 @@
-import { StepOne } from "../components/StepOne";
-import { StepThree } from "../components/StepThree";
-import { StepTwo } from "../components/StepTwo";
-import { TrainerForm } from "../types/TrainerForm";
+import { type TrainerForm } from "../../domain/entities/TrainerForm";
+import { StepOne } from "../components/form/StepOne";
+import { StepThree } from "../components/form/StepThree";
+import { StepTwo } from "../components/form/StepTwo";
 
 
 export interface Step {

@@ -1,6 +1,6 @@
 import { useTrainerStore } from "@/store/trainer.store";
-import { Trainer } from "../../domain/entities/Trainer";
-import { TrainerRepository } from "../../domain/repositories/TrainerRepository";
+import { type Trainer } from "../../domain/entities/Trainer";
+import { type TrainerRepository } from "../../domain/entities/TrainerRepository";
 
 export class TrainerRepositoryLocal implements TrainerRepository {
   create(trainer: Trainer): void {

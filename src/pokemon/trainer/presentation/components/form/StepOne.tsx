@@ -1,16 +1,13 @@
+import { type TrainerForm } from "@/pokemon/trainer/domain/entities/TrainerForm";
 import { Input } from "@/shared/components/Input";
 import { useFormContext } from "react-hook-form";
-import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
-import { TrainerForm } from "../types/TrainerForm";
+import { View } from "react-native";
 
 export const StepOne = () => {
   const { control, formState: { errors } } = useFormContext<TrainerForm>();
 
   return (
-      <Animated.View
-        entering={FadeInRight.duration(300)}
-        exiting={FadeOutLeft.duration(300)}
-      >
+      <View style={{width: 300, margin:'auto'}}>
         <Input<TrainerForm>
             name="email"
             placeholder="Correo"
@@ -22,6 +19,6 @@ export const StepOne = () => {
             name="name"
             placeholder="Nombre"
         />
-      </Animated.View>
+      </View>
   )
 }

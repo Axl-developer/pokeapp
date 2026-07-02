@@ -1,6 +1,7 @@
-import { TrainerForm } from '../../presentation/types/TrainerForm';
+
 import { Trainer } from '../entities/Trainer';
-import { TrainerRepository } from '../repositories/TrainerRepository';
+import { type TrainerForm } from '../entities/TrainerForm';
+import { type TrainerRepository } from '../entities/TrainerRepository';
 import { UuidGenerator } from '../services/UuidGenerator';
 
 export class CreateTrainer {

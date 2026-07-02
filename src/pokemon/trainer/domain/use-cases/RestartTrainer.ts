@@ -1,4 +1,5 @@
-import { TrainerRepository } from '../repositories/TrainerRepository';
+import { type TrainerRepository } from "../entities/TrainerRepository";
+
 
 export class RestartTrainer {
   constructor(
