@@ -1,8 +1,4 @@
-// import { AnimatedScreen } from './AnimatedScreen';
-
 import { TrainerScreen } from "@/pokemon/trainer/presentation/screen/TrainerScreen";
-
-
 
 export default function HomeScreen() {
 

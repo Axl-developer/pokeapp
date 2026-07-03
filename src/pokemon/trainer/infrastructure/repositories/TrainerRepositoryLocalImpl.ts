@@ -12,6 +12,6 @@ export class TrainerRepositoryLocalImpl implements TrainerRepository {
   }
 
   restart(): void {
-    useTrainerStore.getState().restarTrainer();
+    useTrainerStore.getState().resetTrainer();
   }
 }

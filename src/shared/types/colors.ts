@@ -13,7 +13,7 @@ export const pokemonTypeColors: Record<string, string> = {
   bug: "#BFD36B",
   rock: "#C9BB86",
   ghost: "#9A86B8",
-  dragon: "#9A7BFF",
+  dragon: "#4F7CFF",
   dark: "#8C7A6B",
   steel: "#C9CAD6",
   fairy: "#E7AFCB",

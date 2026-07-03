@@ -1,6 +1,7 @@
-import { Pokemon, RecordPokemon } from "@/shared/types"
+import { item, Pokemon, RecordPokemon } from "@/shared/types"
 import { IResponsePokemon } from "../interface/IResponsePokemon"
 import { IResponseRecord } from "../interface/IresponseRecord"
+import { IResponseSpeciePokemon } from "../interface/IResponseSpeciePokemon"
 
 export const adapterRecord = (response: IResponseRecord): RecordPokemon => {
     return {
@@ -27,3 +28,8 @@ export const adapterResponsePokemon = (response:IResponsePokemon):Pokemon => ({
         url:elm.type.url
     }))
 })
+
+export const adapterSpecies = (response: IResponseSpeciePokemon): Array<item> => response.varieties.map(elem => ({
+        name: elem.pokemon.name,
+        url: elem.pokemon.url
+    }))

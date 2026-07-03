@@ -6,9 +6,10 @@ import { pokemonTypeColors } from "../types/colors";
 
 interface PokemonCardProps {
   pokemon: Pokemon;
+  handleSelectPokemon: (pokemon: Pokemon) => Promise<void>
 }
 
-export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
+export const PokemonCard = ({ pokemon, handleSelectPokemon }: PokemonCardProps) => {
 
   const scale = useSharedValue(1);
 
@@ -20,6 +21,8 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
     scale.value = withSpring(0.97, {}, () => {
         scale.value = withSpring(1);
     });
+
+    handleSelectPokemon(pokemon)
 
     router.push({
         pathname: "/pokemon/[id]",
@@ -48,13 +51,21 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
 
 const styles = StyleSheet.create({
   target: {
-    margin: 20,
+    marginVertical: 15,
+    marginHorizontal: 10,
     backgroundColor: "red",
     borderRadius: 10,
+    padding: 10,
+    height: 100,
+    width: 180,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    flex: 1 / 2
   },
   image: {
-    position: "relative",
-    top: -40,
+    position: "absolute",
+    top: -30,
+    right: -20,
     height: 100,
     width: 100,
   },
