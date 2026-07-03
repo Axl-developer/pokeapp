@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#0000001a",
     borderRadius: 999,
     overflow: "hidden",
-    width: 220,
+    width: 200,
   },
 });

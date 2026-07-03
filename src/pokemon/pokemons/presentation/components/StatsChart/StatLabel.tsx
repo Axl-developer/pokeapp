@@ -24,7 +24,7 @@ export function StatLabel({
 
 const styles = StyleSheet.create({
   container: {
-    width: 75,
+    width: 130,
     flexDirection: "row",
     justifyContent: "space-between",
     marginRight: 12,
