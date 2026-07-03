@@ -1,6 +1,6 @@
 export interface Trainer{
     id:string;
-    sex: boolean;
+    sex?: boolean;
     name:string;
     email:string;
     age?:number | undefined;

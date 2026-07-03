@@ -37,7 +37,6 @@ export const FormTrainer = () => {
 
     const onSubmit = (data: TrainerForm) => {
         createTrainer(data);
-        console.log('submit',{data})
     };
     
     const submit = handleSubmit(onSubmit);

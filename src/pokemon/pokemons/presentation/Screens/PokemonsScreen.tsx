@@ -1,7 +1,7 @@
 import { PokemonCard } from "@/shared/components/PokemonCard";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
+import { useSelectedPokemon } from "../../../../shared/hooks/useSelectedPokemon";
 import { useGetPokemons } from "../hooks/useGetPokemons";
-import { useSelectedPokemon } from "../hooks/useSelectedPokemon";
 
 
 export const PokemonsScreen = () => {
@@ -33,6 +33,7 @@ export const PokemonsScreen = () => {
       <View style={{flex:1, marginTop: 40}}>
         <Text style={{fontWeight:'bold', marginHorizontal: 20, fontSize: 30}} >Pokemons</Text>
         <FlatList
+          style={{marginTop: 20, overflow: 'visible'}}
           data={pokemons}
           keyExtractor={pokemon => pokemon.name}
           renderItem={({ item }) => <PokemonCard pokemon={item} handleSelectPokemon={selectePokemon} />}

@@ -1,3 +1,4 @@
+import { Pokemon } from "@/shared/types";
 import { useTrainerStore } from "@/store/trainer.store";
 import { type Trainer } from "../../domain/entities/Trainer";
 import { type TrainerRepository } from "../../domain/entities/TrainerRepository";
@@ -7,11 +8,15 @@ export class TrainerRepositoryLocalImpl implements TrainerRepository {
     useTrainerStore.getState().saveTrainer(trainer);
   }
 
-  getTrainer(): Trainer | undefined {
-    return useTrainerStore.getState().trainer;
-  }
-
   restart(): void {
     useTrainerStore.getState().resetTrainer();
+  }
+
+  addFavorite(pokemon: Pokemon): void {
+    useTrainerStore.getState().addFavorite(pokemon);
+  }
+
+  removeFavorite(id: number): void {
+    useTrainerStore.getState().removeFavorite(id);
   }
 }

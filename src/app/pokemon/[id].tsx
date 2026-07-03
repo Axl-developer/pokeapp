@@ -1,8 +1,12 @@
 import { StatsChart } from "@/pokemon/pokemons/presentation/components/StatsChart";
 import { useGetPokemonsSpecies } from "@/pokemon/pokemons/presentation/hooks";
 import { useGetDataPokemon } from "@/pokemon/pokemons/presentation/hooks/useGetDataPokemon";
+import { useAddFavorite } from "@/pokemon/trainer/presentation/hooks/useAddFavorite";
+import { useRemoveFavorite } from "@/pokemon/trainer/presentation/hooks/useRemoveFavorite";
 import { pokemonTypeColors } from "@/shared/types/colors";
 import { usePokemonStore } from "@/store/pokemon.store";
+import { useTrainerStore } from "@/store/trainer.store";
+import Ionicons from "@react-native-vector-icons/ionicons";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
@@ -10,8 +14,11 @@ import Animated, { FadeIn } from "react-native-reanimated";
 
 export default function pokemonScreen () {
   const pokemon = usePokemonStore( state => state.pokemon );
+  const { favorites } = useTrainerStore();
   const species = useGetPokemonsSpecies(pokemon?.name ?? '');
   const { fetchPokemon, isLoading } = useGetDataPokemon();
+  const { addFavorite } = useAddFavorite();
+  const { removeFavorite } = useRemoveFavorite();
 
   const [isShiny, setIsShiny] = useState(false);
 
@@ -37,9 +44,18 @@ export default function pokemonScreen () {
     });
   }
 
+  const favorite = favorites.find( favorite => favorite.id === pokemon?.id )
+
+  const handleFavorite = () => {
+    favorite ? removeFavorite(pokemon!.id) :addFavorite(pokemon!) 
+  }
+
   if(isLoading) {
     return <Text>Loading</Text>
   }
+
+  const getHeart = (): 'heart'|'heart-outline' => favorite ?'heart' :'heart-outline'
+ 
 
   return (
     <ScrollView>
@@ -56,8 +72,15 @@ export default function pokemonScreen () {
         />
         </View>
         <View style={style.target}>
-        <View style={style.info}>
-          <Text style={style.name}>{pokemon?.name}</Text>
+          <Pressable onPress={handleFavorite}>
+            <Ionicons
+              name={getHeart()}
+              size={32}
+              color="red"
+            />
+          </Pressable>
+          <View style={style.info}>
+            <Text style={style.name}>{pokemon?.name}</Text>
               {
                 isShiny && <Text style={{color: getColorPokemon(pokemon!.types[0].name), fontSize: 20}}>Shiny</Text>
               }

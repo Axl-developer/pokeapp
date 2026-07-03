@@ -1,5 +1,5 @@
 import { Pokemon } from "@/shared/types";
-import { selectPokemonUseCase } from "../../di/pokemon";
+import { selectPokemonUseCase } from "../../pokemon/pokemons/di/pokemon";
 
 
 export const useSelectedPokemon = () => {
