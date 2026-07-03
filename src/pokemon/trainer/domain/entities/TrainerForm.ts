@@ -1,5 +1,5 @@
 export interface TrainerForm {
-    sex: boolean;
+    sex?: boolean;
     name: string;
     email: string;
     city: string;
