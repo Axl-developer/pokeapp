@@ -1,5 +1,5 @@
 
 
 export interface PokemonRepository<T> {
-  getPokemons(): Promise<T>;
+  getPokemons(page: number, limit: number): Promise<T>;
 }

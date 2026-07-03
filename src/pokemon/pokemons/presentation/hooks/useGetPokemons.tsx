@@ -5,7 +5,7 @@ export const useGetPokemons = () => {
 
     const { data } = useQuery({
         queryKey: ["pokemons"],
-        queryFn: () => pokemonRepository.getPokemons(),
+        queryFn: () => pokemonRepository.getPokemons(0,20),
         staleTime: 1000 * 69 * 60,
     });
 

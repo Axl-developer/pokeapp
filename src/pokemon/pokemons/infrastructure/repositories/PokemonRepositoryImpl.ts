@@ -5,8 +5,8 @@ import { getPokemons } from "../api/pokemon.api";
 
 export class PokemonRepositoryImpl implements PokemonRepository<RecordPokemon> {
 
-    async getPokemons(): Promise<RecordPokemon> {
-        const response = await getPokemons(0,10);
+    async getPokemons(page: number, limit: number): Promise<RecordPokemon> {
+        const response = await getPokemons(page, limit);
 
         return adapterRecord(response);
     }

@@ -33,7 +33,7 @@ export const PokemonsScreen = () => {
       <View style={{flex:1, marginTop: 40}}>
         <Text style={{fontWeight:'bold', marginHorizontal: 20, fontSize: 30}} >Pokemons</Text>
         <FlatList
-          style={{marginTop: 20, overflow: 'visible'}}
+          style={{marginTop: 20}}
           data={pokemons}
           keyExtractor={pokemon => pokemon.name}
           renderItem={({ item }) => <PokemonCard pokemon={item} handleSelectPokemon={selectePokemon} />}
