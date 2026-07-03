@@ -1,9 +1,9 @@
 import { CreateTrainer } from "../domain/use-cases/CreateTrainer";
 import { RestartTrainer } from "../domain/use-cases/RestartTrainer";
-import { TrainerRepositoryLocal } from "../infrastructure/repositories/TrainerRepositoryLocal";
+import { TrainerRepositoryLocalImpl } from "../infrastructure/repositories/TrainerRepositoryLocalImpl";
 import { ExpoUuidGenerator } from "../infrastructure/services/ExpoUuidGenerator";
 
-export const trainerRepository = new TrainerRepositoryLocal();
+export const trainerRepository = new TrainerRepositoryLocalImpl();
 const uuidGenerator = new ExpoUuidGenerator();
 
 export const createTrainerUseCase = new CreateTrainer(trainerRepository, uuidGenerator);
