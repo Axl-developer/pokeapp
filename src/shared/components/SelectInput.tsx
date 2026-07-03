@@ -1,8 +1,11 @@
 import { BlurView } from "expo-blur";
 import { useState } from "react";
 import { Controller, FieldPath, FieldValues, useFormContext } from "react-hook-form";
-import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import Animated, { interpolate, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import { enableScreens } from "react-native-screens";
+
+enableScreens(false);
 
 type Option = {
   label: string;
@@ -90,46 +93,48 @@ export function SelectInput<T extends FieldValues>({
             transparent
             statusBarTranslucent
           >
-            <Animated.View
+            <ScrollView>
+              <Animated.View
                 style={[
                     styles.backdrop,
                     backdropStyle,
                 ]}
-            >
-                <BlurView
-                    intensity={40}
-                    tint="dark"
-                    style={[StyleSheet.absoluteFill]}
-                />
-                <Pressable
-                    style={StyleSheet.absoluteFill}
-                    onPress={closeModal}
-                />
-
-                <Animated.View
-                    style={[
-                    styles.sheet,
-                    sheetStyle,
-                    ]}
-                >
-                <View style={styles.handle} />
-
-                {options.map(option => (
+              >
+                  <BlurView
+                      intensity={40}
+                      tint="dark"
+                      style={[StyleSheet.absoluteFill]}
+                  />
                   <Pressable
-                    key={option.value}
-                    style={styles.option}
-                    onPress={() => {
-                      onChange(option.value);
-                      closeModal();
-                    }}
+                      style={StyleSheet.absoluteFill}
+                      onPress={closeModal}
+                  />
+
+                  <Animated.View
+                      style={[
+                      styles.sheet,
+                      sheetStyle,
+                      ]}
                   >
-                    <Text style={styles.optionText}>
-                      {option.label}
-                    </Text>
-                  </Pressable>
-                ))}
-                </Animated.View>
-            </Animated.View>
+                  <View style={styles.handle} />
+
+                  {options.map(option => (
+                    <Pressable
+                      key={option.value}
+                      style={styles.option}
+                      onPress={() => {
+                        onChange(option.value);
+                        closeModal();
+                      }}
+                    >
+                      <Text style={styles.optionText}>
+                        {option.label}
+                      </Text>
+                    </Pressable>
+                  ))}
+                  </Animated.View>
+              </Animated.View>
+            </ScrollView>
           </Modal>
         </>
       )}

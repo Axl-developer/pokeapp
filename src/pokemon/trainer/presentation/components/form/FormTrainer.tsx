@@ -1,7 +1,8 @@
 import { type TrainerForm } from '@/pokemon/trainer/domain/entities/TrainerForm';
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormProvider, useForm } from "react-hook-form";
-import { StyleSheet, View } from "react-native";
+import { FormProvider, useForm, useWatch } from "react-hook-form";
+import { Image, StyleSheet, View } from "react-native";
+import { images } from '../../constants/trainerImages';
 import { trainerSteps } from '../../constants/trainerSteps';
 import { useCreateTrainer } from '../../hooks/useCreateTrainer';
 import { useStepForm } from '../../hooks/useStepForm';
@@ -16,12 +17,18 @@ export const FormTrainer = () => {
     const methods = useForm({
         resolver: yupResolver(trainerSchema),
         defaultValues: {
+            sex:true,
             email: "",
-            age: undefined,
             name: "",
             city: "",
+            region: "",
             birthDate: new Date(),
         },
+    });
+
+    const sex = useWatch({
+      control: methods.control,
+      name: "sex",
     });
 
     const { trigger, handleSubmit } = methods;
@@ -44,7 +51,10 @@ export const FormTrainer = () => {
     <FormProvider {...methods}>
       <View style={styles.heroSection}>
           
-          <View style={styles.pokeball}/>
+          <Image
+            style={styles.avatar}
+            source={sex ? images.male : images.female}
+          />
 
           <AnimatedStep
             animationKey={step}
@@ -96,5 +106,12 @@ const styles = StyleSheet.create({
     borderRadius: '50%',
     height: 200,
     width: 200,
+  },
+  avatar: {
+    width: 200,
+    height: 200,
+    borderRadius: 9999,
+    borderWidth: 3,
+    borderColor: "#df6262",
   }
 });

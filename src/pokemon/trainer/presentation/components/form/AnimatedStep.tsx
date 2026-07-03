@@ -27,7 +27,6 @@ export function AnimatedStep({
         direction === "next"
             ? FadeOutLeft
             : FadeOutRight;
-console.log('direction------',direction,animationKey)
   return (
     <Animated.View
         key={animationKey}

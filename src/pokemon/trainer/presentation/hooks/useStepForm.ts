@@ -21,7 +21,6 @@ export const useStepForm = ({
 }: Props) => {
 
   const [step, setStep] = useState(0);
-  console.log(step)
 
   const [direction, setDirection] = useState<"next" | "back">("next");
 
@@ -31,7 +30,6 @@ export const useStepForm = ({
     );
 
     if (!isValid) {
-        console.log(isValid)
         return;
     } 
 

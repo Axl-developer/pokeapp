@@ -1,7 +1,9 @@
 import { useTrainerStore } from "@/store/trainer.store";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, { FadeInDown, FadeOutUp } from "react-native-reanimated";
+import { images } from "../../constants/trainerImages";
 import { useRestartTrainer } from "../../hooks/useRestartTrainer";
+import { getAge } from "../../utils/getAge";
 import { Favorite } from "./Favorite";
 
 
@@ -17,10 +19,14 @@ export const Profile = () => {
         exiting={FadeOutUp.duration(300)}
         style={style.container}>
         <View style={style.target}>
-            <View style={style.perfil}/>
+            <Image
+                style={style.perfil}
+                source={trainer?.sex ? images.male : images.female}
+            />
             <Text style={style.name}>{trainer?.name}</Text>
             <Text style={style.city}>{trainer?.city}</Text>
-            <Text style={style.city}>{trainer?.age} años</Text>
+            <Text style={style.region}>{trainer?.region}</Text>
+            <Text style={style.age}>{getAge(trainer?.birthDate ?? '')} años</Text>
         </View>
         <Pressable style={style.buton} onPress={restartTrainer}>
             <Text style={style.butonText} >Cerrar sesión</Text>
@@ -43,11 +49,11 @@ const style = StyleSheet.create({
         justifyContent: 'center',
     },
     perfil: {
-        backgroundColor:'grey',
-        borderRadius: '50%',
-        marginBottom: 30,
-        height: 150,
-        width: 150,
+        width: 200,
+        height: 200,
+        borderRadius: 9999,
+        borderWidth: 3,
+        borderColor: "#df6262",
     },
     name: {
         fontSize: 40,
@@ -55,7 +61,14 @@ const style = StyleSheet.create({
         marginBottom: 20,
     },
     city: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
+    region:{
+        fontSize: 15,
+    },
+    age: {
+        fontWeight: 'bold',
     },
     buton: {
         backgroundColor: 'black',

@@ -30,7 +30,7 @@ export function Input<T extends FieldValues>({ name, label, ...props }: Props<T>
     const handleBlur = () => progress.value = withTiming(0)
 
   return (
-    <View>
+    <View style={{marginBottom: 10}}>
       {label && <Text>{label}</Text>}
 
       <Controller
