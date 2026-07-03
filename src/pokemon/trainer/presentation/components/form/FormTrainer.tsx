@@ -1,4 +1,3 @@
-import { Spacing } from '@/constants/theme';
 import { type TrainerForm } from '@/pokemon/trainer/domain/entities/TrainerForm';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    gap: Spacing.four,
+    gap: 40,
     backgroundColor: '#ffffff'
   },
   buttons: {

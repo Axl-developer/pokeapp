@@ -58,6 +58,9 @@ export default function pokemonScreen () {
         <View style={style.target}>
         <View style={style.info}>
           <Text style={style.name}>{pokemon?.name}</Text>
+              {
+                isShiny && <Text style={{color: getColorPokemon(pokemon!.types[0].name), fontSize: 20}}>Shiny</Text>
+              }
             <Text style={style.number}>#{pokemon?.id}</Text>
             <View style={style.types}>
               {

@@ -1,6 +1,6 @@
 import { Pokemon } from "@/shared/types";
 import { usePokemonStore } from "@/store/pokemon.store";
-import { PokemonRepositoryLocal } from "../entities/PokemonRepositoryLocal";
+import { PokemonRepositoryLocal } from "../../domain/entities/PokemonRepositoryLocal";
 
 
 export class PokemonRepositoryLocalImpl implements PokemonRepositoryLocal {
