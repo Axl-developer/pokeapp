@@ -11,7 +11,6 @@ export const PokemonsScreen = () => {
     data: pokemons,
     isLoading,
     error,
-    refetch,
   } = useGetPokemons();
 
   if (isLoading) {
@@ -31,7 +30,8 @@ export const PokemonsScreen = () => {
   }
 
   return (
-      <View style={{flex:1}}>
+      <View style={{flex:1, marginTop: 40}}>
+        <Text style={{fontWeight:'bold', marginHorizontal: 20, fontSize: 30}} >Pokemons</Text>
         <FlatList
           data={pokemons}
           keyExtractor={pokemon => pokemon.name}
